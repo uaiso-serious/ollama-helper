@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ollama Models Helper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Ollama Models Helper</h1>
+    <div>
+        This tool is part of the <a href="https://github.com/uaiso-serious">UaiSo Serious</a> ecosystem.
+        <a href="help.html">Help?</a>
+    </div>
+    <div class="filters">
+        <label>
+            Min Size (GB):
+            <input type="number" id="min-size" placeholder="0">
+        </label>
+        <label>
+            Max Size (GB):
+            <input type="number" id="max-size" placeholder="Max">
+        </label>
+        <button id="filter-btn">Filter</button>
+    </div>
+    <div id="table-container">
+        <table id="models-table">
+            <thead>
+            <tr>
+                <th>Model</th>
+                <th>Name</th>
+                <th>Size (Bytes)</th>
+                <th>Context</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Rows will be populated here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

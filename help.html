@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ollama Models Helper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Ollama Models Helper</h1>
+    <div>
+        This tool is part of the <a href="https://github.com/uaiso-serious">UaiSo Serious</a> ecosystem.
+    </div>
+    <hr>
+    <h2>Know your hardware first</h2>
+    <div>
+        <p>
+            Check hardware support <a href="https://docs.ollama.com/gpu">https://docs.ollama.com/gpu</a><br/>
+        </p>
+        <p>
+            Check how much VRAM available.
+        </p>
+        <p>
+            Find a model that fits that fits into your GPU VRAM from the <a href="index.html">main page</a>.
+        </p>
+        <p>
+            try
+        <pre>
+            ollama run &lt;model-name&gt;
+            </pre>
+        </p>
+        <p>
+            check if it's running 100% on GPU with
+        <pre>
+            ollama ps
+            NAME           ID              SIZE      PROCESSOR    CONTEXT    UNTIL
+            llama3.2:3b    a80c4f17acd5    2.8 GB    100% GPU     4096       4 minutes from now
+            </pre>
+        </p>
+
+    </div>
+</div>
+</body>
+</html>
