@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             row.innerHTML = `
                 <td><a href="https://ollama.com/library/${model.model}" target="_blank">${model.model}</a></td>
                 <td><a href="https://ollama.com/library/${model.name}" target="_blank">${model.name}</a></td>
-                <td>${(model.size / (1024 ** 3)).toLocaleString()}</td>
+                <td>${(model.size / (1024 ** 3)).toLocaleString()}GB</td>
                 <td>${(model.context / 1000).toLocaleString()}K</td>
             `;
             tableBody.appendChild(row);
