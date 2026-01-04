@@ -166,7 +166,7 @@ function renderGroupedResults(data) {
         table.innerHTML = `
             <thead>
                 <tr>
-                    <th>Tag (Name)</th>
+                    <th><a href="https://ollama.com/library/${family}" target="_blank">${family}</a></th>
                     <th>Size</th>
                     <th>Context</th>
                 </tr>
@@ -174,7 +174,7 @@ function renderGroupedResults(data) {
             <tbody>
                 ${variants.map(v => `
                     <tr>
-                        <td><a href="https://ollama.com/library/${v.model}" target="_blank">${v.name}</a></td>
+                        <td><a href="https://ollama.com/library/${v.name}" target="_blank">${v.name}</a></td>
                         <td>${formatBytes(v.size)}</td>
                         <td>${formatContext(v.context)}</td>
                     </tr>
