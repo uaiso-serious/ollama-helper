@@ -1,45 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ollama Models Helper</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-    <h1>Ollama Models Helper</h1>
-    <div>
-        This tool is part of the <a href="https://github.com/uaiso-serious">UaiSo Serious</a> ecosystem.
-        <a href="help.html">Help?</a>
-    </div>
-    <div class="filters">
-        <label>
-            Min Size (GB):
-            <input type="number" id="min-size" placeholder="0">
-        </label>
-        <label>
-            Max Size (GB):
-            <input type="number" id="max-size" placeholder="Max">
-        </label>
-        <button id="filter-btn">Filter</button>
-    </div>
-    <div id="table-container">
-        <table id="models-table">
-            <thead>
-            <tr>
-                <th>Model</th>
-                <th>Name</th>
-                <th>Size (GBytes)</th>
-                <th>Context</th>
-            </tr>
-            </thead>
-            <tbody>
-            <!-- Rows will be populated here -->
-            </tbody>
-        </table>
-    </div>
-</div>
-<script src="script.js"></script>
+    <main class="container">
+        <hgroup>
+            <h1>Ollama Models Helper</h1>
+            <p>Explore e filtre modelos Ollama com facilidade. Dados locais via IndexedDB.</p>
+        </hgroup>
+
+        <section id="filters">
+            <div class="grid">
+                <label>
+                    Tamanho Mínimo (GB)
+                    <input type="number" id="min-size" placeholder="0" min="0">
+                </label>
+                <label>
+                    Tamanho Máximo (GB)
+                    <input type="number" id="max-size" placeholder="Max" min="0">
+                </label>
+            </div>
+            <small id="status-msg">Carregando dados...</small>
+        </section>
+
+        <hr>
+
+        <section id="results">
+            <!-- Accordions will be injected here -->
+        </section>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
