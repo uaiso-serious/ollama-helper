@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         filterAndRender();
     } catch (e) {
         console.error(e);
-        statusMsg.innerText = "Erro ao iniciar aplicação: " + e.message;
+        statusMsg.innerText = "Error initializing application: " + e.message;
     }
 });
 
@@ -55,7 +55,7 @@ function initDB() {
 }
 
 async function loadCSVandPopulateDB() {
-    statusMsg.innerText = "Baixando e processando dados...";
+    statusMsg.innerText = "Downloading and processing data...";
     const response = await fetch('models.csv');
     const text = await response.text();
     const models = parseCSV(text);
@@ -74,7 +74,7 @@ async function loadCSVandPopulateDB() {
         };
 
         transaction.oncomplete = () => {
-            statusMsg.innerText = `Pronto! ${models.length} variantes carregadas.`;
+            statusMsg.innerText = `Ready! ${models.length} variants loaded.`;
             resolve();
         };
 
@@ -139,7 +139,7 @@ function renderGroupedResults(data) {
     resultsContainer.innerHTML = '';
 
     if (data.length === 0) {
-        resultsContainer.innerHTML = '<p>Nenhum modelo encontrado para este filtro.</p>';
+        resultsContainer.innerHTML = '<p>No models found for this filter.</p>';
         return;
     }
 
@@ -160,15 +160,15 @@ function renderGroupedResults(data) {
 
         const details = document.createElement('details');
         const summary = document.createElement('summary');
-        summary.textContent = `${family} (${variants.length} variantes)`;
+        summary.textContent = `${family} (${variants.length} variants)`;
 
         const table = document.createElement('table');
         table.innerHTML = `
             <thead>
                 <tr>
-                    <th>Tag (Nome)</th>
-                    <th>Tamanho</th>
-                    <th>Contexto</th>
+                    <th>Tag (Name)</th>
+                    <th>Size</th>
+                    <th>Context</th>
                 </tr>
             </thead>
             <tbody>

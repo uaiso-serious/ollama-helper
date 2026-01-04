@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,21 +11,21 @@
     <main class="container">
         <hgroup>
             <h1>Ollama Models Helper</h1>
-            <p>Explore e filtre modelos Ollama com facilidade. Dados locais via IndexedDB.</p>
+            <p>Explore and filter Ollama models with ease. Local data via IndexedDB.</p>
         </hgroup>
 
         <section id="filters">
             <div class="grid">
                 <label>
-                    Tamanho Mínimo (GB)
+                    Minimum Size (GB)
                     <input type="number" id="min-size" placeholder="0" min="0">
                 </label>
                 <label>
-                    Tamanho Máximo (GB)
+                    Maximum Size (GB)
                     <input type="number" id="max-size" placeholder="Max" min="0">
                 </label>
             </div>
-            <small id="status-msg">Carregando dados...</small>
+            <small id="status-msg">Loading data...</small>
         </section>
 
         <hr>
