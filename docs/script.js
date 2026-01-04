@@ -98,7 +98,9 @@ function parseCSV(text) {
             model: cols[0],
             name: cols[1],
             size: parseInt(cols[2], 10), // bytes
-            context: parseInt(cols[3], 10)
+            context: parseInt(cols[3], 10),
+            tags: cols[4],
+            date: cols[5]
         });
     }
     return models;
@@ -150,17 +152,38 @@ function renderGroupedResults(data) {
         return acc;
     }, {});
 
-    // Sort model families alphabetically
-    const sortedFamilies = Object.keys(grouped).sort();
+    // Calculate max date per family for sorting
+    const familyDates = {};
+    Object.keys(grouped).forEach(family => {
+        const variants = grouped[family];
+        // Find the latest date string (lexicographical sort works for YYYY-MM-DD)
+        let maxDate = '';
+        variants.forEach(v => {
+            if (v.date && v.date > maxDate) maxDate = v.date;
+        });
+        familyDates[family] = maxDate;
+    });
+
+    // Sort model families by date descending
+    const sortedFamilies = Object.keys(grouped).sort((a, b) => {
+        const dateA = familyDates[a] || '';
+        const dateB = familyDates[b] || '';
+        if (dateB > dateA) return 1;
+        if (dateB < dateA) return -1;
+        return a.localeCompare(b);
+    });
 
     sortedFamilies.forEach(family => {
         const variants = grouped[family];
         // Sort variants by size descending within family
         variants.sort((a, b) => b.size - a.size);
 
+        const latestDate = familyDates[family];
+        const dateDisplay = latestDate ? ` - ${latestDate}` : '';
+
         const details = document.createElement('details');
         const summary = document.createElement('summary');
-        summary.textContent = `${family} (${variants.length} variants)`;
+        summary.textContent = `${family} (${variants.length} variants)${dateDisplay}`;
 
         const table = document.createElement('table');
         table.innerHTML = `
